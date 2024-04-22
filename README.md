@@ -7,9 +7,13 @@ The Student Management System (StudentMGT) is a command-line Java application de
 
 ### Features
 Add Students: Add new students to the database by providing relevant information such as student ID, first name, last name, faculty, credits, and GPA.
+
 Update Students: Update existing student records with new information, such as modifying first name, last name, faculty, credits, or GPA.
+
 Delete Students: Delete student records from the database based on the student ID.
+
 List of student: view all all students.
+
 User-Friendly Interface: The application features a clean and easy-to-use command-line interface for input and output.
 
 ### How to Use this project in your system
