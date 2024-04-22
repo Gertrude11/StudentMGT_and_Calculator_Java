@@ -35,6 +35,7 @@ public class StudentMGT {
                 System.out.println("1. Register Student");
                 System.out.println("2. Update Student");
                 System.out.println("3. Delete Student");
+                System.out.println("4. List of Students");
                 System.out.println("0. Exit");
                 System.out.println("=====================");
                 System.out.print("Enter a choice of what you want: ");
@@ -50,6 +51,9 @@ public class StudentMGT {
                     case 3:
                         deleteStudent(sc, con);
                         break;
+                    case 4:
+                        studentList(sc, con);
+                        break;    
                     case 0:
                         System.out.println("Thank you for using our system\n\n");
                         break;
@@ -198,6 +202,33 @@ public class StudentMGT {
         }
         return false;
     }
+   private static boolean studentList(Scanner sc, Connection con) throws SQLException {
+    String query = "SELECT * FROM student_info";
+    try (PreparedStatement pstmt = con.prepareStatement(query)) {
+        ResultSet result = pstmt.executeQuery();
+
+        while (result.next()) {
+            int id = result.getInt(1);
+            String name = result.getString(2);
+            String address = result.getString(3);
+            String email = result.getString(4);
+            int age = result.getInt(5);
+            double gpa = result.getDouble(6);
+
+            // Print out the student information
+            System.out.println("ID: " + id);
+            System.out.println("Name: " + name);
+            System.out.println("Address: " + address);
+            System.out.println("Email: " + email);
+            System.out.println("Age: " + age);
+            System.out.println("GPA: " + gpa);
+            System.out.println(); // Add a line break for readability
+        }
+
+        con.close();
+    }
+    return false;
+}
 
 
 }
